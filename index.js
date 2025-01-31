@@ -2,8 +2,8 @@ import { rotateLeft, rotateRight } from "./rotateMatrix.js";
 import { getMirrorMatrix } from "./getMirrorMatrix.js";
 import multiply from "./multiply.js";
 import takeOldest from "./takeOldest.js";
-import { sameParity, getMenCountByYear, reverse } from './sameParityFilter.js'
-import { fromPairs, bqs, cloneDeep, scrabble } from './massive.js'
+import { sameParity, getMenCountByYear, reverse, findIndexOfNearest, nrzi, ipToInt, intToIp, merge, histogram } from './sameParityFilter.js'
+import { fromPairs, bqs, cloneDeep, scrabble, genDiff, findWhere, toArabic, toRoman } from './massive.js'
 
 
 const matrix = [
@@ -32,3 +32,30 @@ const users = [
 ];
 
 console.log(takeOldest(users, 2));
+
+console.log(genDiff(
+  { one: 'eon', two: 'two', four: true },
+  { two: 'own', zero: 4, four: true },
+));
+
+console.log(findWhere(
+  [
+    { title: 'Book of Fooos', author: 'FooBar', year: 1111 },
+    { title: 'Cymbeline', author: 'Shakespeare', year: 1611 },
+    { title: 'The Tempest', author: 'Shakespeare', year: 1611 },
+    { title: 'Book of Foos Barrrs', author: 'FooBar', year: 2222 },
+    { title: 'Still foooing', author: 'FooBar', year: 3333 },
+    { title: 'Happy Foo', author: 'FooBar', year: 4444 },
+  ],
+  { author: 'Shakespeare', year: 1611 }
+));
+
+console.log(toArabic("MCMXCIV"));
+console.log(toRoman(1994));
+
+console.log(findIndexOfNearest([7, 5, 4, 4, 3], 4));
+console.log(nrzi('_|¯|____|¯|__|¯¯¯'));
+console.log(ipToInt('128.32.10.1')); // 2149583361
+console.log(ipToInt('255.255.255.255')); // 4294967295
+console.log(merge({ a: 1, b: 2 }, { a: 3 }));
+console.log(histogram());
