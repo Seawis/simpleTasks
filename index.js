@@ -2,7 +2,7 @@ import { rotateLeft, rotateRight } from "./rotateMatrix.js";
 import { getMirrorMatrix } from "./getMirrorMatrix.js";
 import multiply from "./multiply.js";
 import takeOldest from "./takeOldest.js";
-import { sameParity, getMenCountByYear, reverse, findIndexOfNearest, nrzi, ipToInt, intToIp, merge, histogram } from './sameParityFilter.js'
+import { sameParity, getMenCountByYear, reverse, findIndexOfNearest, nrzi, ipToInt, intToIp, merge, histogram, calcShipsCount, barChart, displayHistogram, calculateProbabilities } from './sameParityFilter.js'
 import { fromPairs, bqs, cloneDeep, scrabble, genDiff, findWhere, toArabic, toRoman } from './massive.js'
 
 
@@ -58,4 +58,22 @@ console.log(nrzi('_|¯|____|¯|__|¯¯¯'));
 console.log(ipToInt('128.32.10.1')); // 2149583361
 console.log(ipToInt('255.255.255.255')); // 4294967295
 console.log(merge({ a: 1, b: 2 }, { a: 3 }));
-console.log(histogram());
+console.log(histogram(10));
+console.log(calcShipsCount([
+  [1, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0],
+  [1, 0, 0, 1, 1, 0],
+  [1, 0, 1, 1, 0, 1],
+  [0, 0, 0, 0, 1, 1],
+  [0, 1, 0, 0, 1, 0],
+]));
+console.log(barChart([5, -2, 10, 6, -1, 2, 6, 4, 8, 1, 1, -7, 3, 5, 5]));
+console.log(displayHistogram(13));
+console.log(bqs({ per: 10, page: 1 }));
+console.log(calcShipsCount([
+  [0, 0, 1],
+  [0, 0, 0],
+  [1, 1, 0],
+]));
+console.log(calculateProbabilities([1, 3, 1, 5, 1]));
+console.log(calculateProbabilities([1, 3, 1, 5, 1, 2, 1, 6]));
